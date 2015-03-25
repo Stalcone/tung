@@ -1,0 +1,23 @@
+{% extends "_layouts/base.html" %}
+
+{% block title %}{{ object.name }} | Colls | {{ block.super }}{% endblock title %}
+
+{% block headline %}
+    <h1>{{ object.name }}</h1>
+{% endblock headline %}
+
+{% block content %}
+    <ul>
+        {% for year in years %}
+            <li><a href="{% url 'colls:coll_year' object.pk year %}">{{ year }}</a></li>
+        {% endfor %}
+    </ul>
+
+    [<a href="{% url 'colls:item_create' object.pk %}">Add a new item</a>]
+    <br>
+    [<a href="{% url 'colls:coll_edit' object.pk %}">Edit this coll</a>]
+    <br>
+    [<a href="{% url 'colls:coll_delete' object.pk %}">Delete this coll</a>]
+    <br>
+    [<a href="{% url 'colls:index' %}">Back to your colls</a>]
+{% endblock content %}

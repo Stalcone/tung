@@ -1,0 +1,13 @@
+{% extends "_layouts/base.html" %}
+
+{% block headline %}
+    <h1>Tung</h1>
+{% endblock headline %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <a href="{% url 'colls:index' %}">My colls</a>  
+    {% else %}
+        <p>Welcome!</p>
+    {% endif %}
+{% endblock content %}

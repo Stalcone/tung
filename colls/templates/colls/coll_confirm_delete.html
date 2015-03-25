@@ -1,0 +1,15 @@
+{% extends "_layouts/base.html" %}
+
+{% block title %}Confirm delete | Colls | {{ block.super }}{% endblock title %}
+
+{% block headline %}
+    <h1>Delete {{ object }}</h1>
+{% endblock headline %}
+
+{% block content %}
+    <form action='' method='post'>
+        {% csrf_token %}
+        <p>Are you sure you want to delete {{ object }}?</p>
+        <input class='btn-primary' type='submit' value='Confirm'>
+    </form>
+{% endblock content %}

@@ -1,0 +1,13 @@
+.item {
+    margin: 10px 50px;
+    width: 125px;
+    height: 186px;
+    background-color: #CCCCFF;
+    display: inline-block;
+    text-align: center;
+}
+
+.item_img {
+    width: 125px;
+    height: 186px;
+}

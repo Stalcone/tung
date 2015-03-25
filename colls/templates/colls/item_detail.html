@@ -1,0 +1,23 @@
+{% extends "_layouts/base.html" %}
+
+{% block title %}{{ object }} | Colls | {{ block.super }}{% endblock title %}
+
+{% block headline %}
+    <h1>{{ object }}</h1>
+{% endblock headline %}
+
+{% block content %}
+
+    [<a href="{% url 'colls:coll_year' object.coll.pk object.date.year %}">Back to {{ object.coll }} | {{ object.date.year }}</a>]
+    <br>
+    [<a href="{% url 'colls:item_edit' object.pk %}">Edit this item</a>]
+    <br>
+    [<a href="{% url 'colls:item_delete' object.pk %}">Delete this item</a>]
+
+    <p><img src="{{ object.image_url }}" alt={{ object }} width=240px height=360px></p>
+
+    <p><b>Date:</b> {{ object.date }}</p>
+
+    <p>{{ object.description|safe|linebreaks }}</p>
+
+{% endblock content %}

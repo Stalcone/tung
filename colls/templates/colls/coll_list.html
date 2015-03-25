@@ -1,0 +1,17 @@
+{% extends "_layouts/base.html" %}
+
+{% block title %}Colls | {{ block.super }}{% endblock title %}
+
+{% block headline %}
+    <h1>Your colls</h1>
+{% endblock headline %}
+
+{% block content %}
+    <ul>
+        {% for coll in object_list %}
+            <li><a href="{{ coll.get_absolute_url }}">{{ coll.name }}</a></li>
+        {% endfor %}
+    </ul>
+
+    [<a href="{% url 'colls:coll_create' %}">Create a new coll</a>]
+{% endblock content %}

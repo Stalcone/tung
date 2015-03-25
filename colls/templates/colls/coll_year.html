@@ -1,0 +1,36 @@
+{% extends "_layouts/base.html" %}
+{% load colls_extras %}
+
+{% block title %}{{ object }} | Colls | {{ block.super }}{% endblock title %}
+
+{% block headline %}
+    <h1>{{ object }}</h1>
+    <h2>{{ year }}</h2>
+{% endblock headline %}
+
+{% block content %}
+    [<a href="{% url 'colls:coll_detail' object.pk %}">Back to all years</a>]<br>
+    [<a href="{% url 'colls:item_create' object.pk %}">Add a new item</a>]
+    {% for month, items in months_items.items %}
+        <h3><u>{{ month|month_number_to_word }}</u></h3>
+        {% if items %}
+            <table>
+            {% for row in items %}
+                <tr>
+                    {% for item in row %}
+                        <td>
+                            <div class="item">
+                                {% if item.image_url %}
+                                    <a href="{% url 'colls:item_detail' item.pk %}"><img class="item_img" src="{{ item.image_url }}"></a>
+                                {% else %}
+                                    <a href="{% url 'colls:item_detail' item.pk %}">{{ item }}</a>
+                                {% endif %}
+                            </div>
+                        </td>  
+                    {% endfor %}
+                </tr>    
+            {% endfor %}
+            </table>
+        {% endif %}
+    {% endfor %}
+{% endblock content %}
