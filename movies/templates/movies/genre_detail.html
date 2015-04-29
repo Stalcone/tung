@@ -1,0 +1,15 @@
+{% extends "_layouts/base.html" %}
+
+{% block title %}{{ genre }} | {{ block.super }}{% endblock title %}
+
+{% block headline %}
+    <h1>{{ genre }}</h1>
+{% endblock headline %}
+
+{% block content %}
+    <ul>
+        {% for movie in movies %}
+        <li><a href="{% url 'movies:movie_detail' movie.pk %}">{{ movie }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock content %}

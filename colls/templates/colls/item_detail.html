@@ -16,7 +16,7 @@
 
     <p><img src="{{ object.image_url }}" alt={{ object }} width=240px height=360px></p>
 
-    <p><b>Date:</b> {{ object.date }}</p>
+    <p><b>Date:</b> {{ object.date|date:"F Y" }}</p>
 
     <p>{{ object.description|safe|linebreaks }}</p>
 

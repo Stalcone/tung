@@ -1,0 +1,63 @@
+{% extends "_layouts/base.html" %}
+
+{% block title %}{{ object.name }}{% endblock title %}
+
+{% block headline %}
+    <h1>{{ object.name }}</h1>
+{% endblock headline %}
+
+{% block content %}
+
+    {% if object.directed.all or object.starred_in.all %}
+
+        <h2>Фильмы</h2>
+
+        {% if object.directed.all %}
+            <h3>Режиссёр:</h3>
+            <ul>
+                {% for movie in object.directed.all %}
+                    <li><a href="{% url 'movies:movie_detail' movie.pk %}">{{ movie }}</a></li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        {% if object.starred_in.all %}
+            <h3>Актёр:</h3>
+            <ul>
+                {% for movie in object.starred_in.all %}
+                    <li><a href="{% url 'movies:movie_detail' movie.pk %}">{{ movie }}</a></li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+    {% endif %}
+
+
+    {% if object.created.all or object.tvshow_season_starred_in.all %}
+
+        <h2>Сериалы</h2>
+
+        {% if object.created.all %}
+            <h3>Создатель:</h3>
+            <ul>
+                {% for tvshow in object.created.all %}
+                    <li><a href="{% url 'movies:tvshow_detail' tvshow.pk %}">{{ tvshow }}</a></li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        {% if object.tvshow_starred_in.all %}
+            <h3>Актёр:</h3>
+            <ul>
+                {% for tvshow in object.tvshow_starred_in.all %}
+                    <li><a href="{% url 'movies:tvshow_detail' tvshow.pk %}">{{ tvshow }}</a></li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+    {% endif %}
+
+    <br>
+    <p>[<a href="{% url 'movies:person_delete' object.pk %}">Удалить</a>]</p>
+    
+{% endblock content %}

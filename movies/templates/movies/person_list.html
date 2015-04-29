@@ -1,0 +1,21 @@
+{% extends "_layouts/base.html" %}
+
+{% block title %}Персоналии | {{ block.super }}{% endblock title %}
+
+{% block headline %}
+    {% if letter %}
+        <h1>Персоналии — {{ letter }}</h1> 
+    {% else %}
+        <h1>Персоналии</h1>  
+    {% endif %}
+{% endblock headline %}
+
+{% block content %}
+    <p><b>Персоны:</b>{% for letter in person_letters %} <a href="{% url 'movies:person_list' %}?letter={{ letter }}">{{ letter }}</a>{% endfor %}</p>
+    
+    <ul>
+        {% for person in object_list %}
+            <li><a href="{{ person.get_absolute_url }}">{{ person }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock content %}

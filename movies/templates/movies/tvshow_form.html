@@ -1,0 +1,12 @@
+{% extends "_layouts/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Добавить сериал | {{ block.super }}{% endblock title %}
+
+{% block headline %}
+    <h1>Добавить новый сериал</h1>
+{% endblock headline %}
+
+{% block content %}
+    {% crispy form %}
+{% endblock content %}

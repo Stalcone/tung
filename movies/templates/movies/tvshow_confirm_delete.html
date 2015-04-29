@@ -1,0 +1,15 @@
+{% extends "_layouts/base.html" %}
+
+{% block title %}Подтвердить удаление {{ object.name }} | {{ block.super }}{% endblock title %}
+
+{% block headline %}
+    <h1>Удаление {{ object }}</h1>
+{% endblock headline %}
+
+{% block content %}
+    <form action='' method='post'>
+        {% csrf_token %}
+        <p>Вы действительно хотите удалить {{ object }}?</p>
+        <input class='btn-primary' type='submit' value='Подтвердить'>
+    </form>
+{% endblock content %}

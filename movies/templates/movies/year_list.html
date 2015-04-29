@@ -1,0 +1,15 @@
+{% extends "_layouts/base.html" %}
+
+{% block title %}Годы | {{ block.super }}{% endblock title %}
+
+{% block headline %}
+    <h1>Годы</h1>
+{% endblock headline %}
+
+{% block content %}
+    <ul>
+        {% for year in years %}
+            <li><a href="{% url 'movies:year_detail' %}?year={{ year }}">{{ year }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock content %}

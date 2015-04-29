@@ -1,0 +1,40 @@
+{% extends "_layouts/base.html" %}
+
+{% block title %}Сериалы | {{ block.super }}{% endblock title %}
+
+{% block headline %}
+    <h1>Сериалы</h1>
+{% endblock headline %}
+
+{% block content %}
+    <h2>Драматические:</h2>
+    <ul>
+        {% for tvshow in drama %}
+            <li><a href="{% url 'movies:tvshow_detail' tvshow.pk %}">{{ tvshow }}</a></li>
+        {% endfor %}
+    </ul>
+
+    <h2>Комедийные:</h2>
+    <ul>
+        {% for tvshow in comedy %}
+            <li><a href="{% url 'movies:tvshow_detail' tvshow.pk %}">{{ tvshow }}</a></li>
+        {% endfor %}
+    </ul>
+
+    <h2>Фантастика/хоррор/фэнтези:</h2>
+    <ul>
+        {% for tvshow in sci_fi %}
+            <li><a href="{% url 'movies:tvshow_detail' tvshow.pk %}">{{ tvshow }}</a></li>
+        {% endfor %}
+    </ul>
+
+    <h2>Анимационные:</h2>
+    <ul>
+        {% for tvshow in animation %}
+            <li><a href="{% url 'movies:tvshow_detail' tvshow.pk %}">{{ tvshow }}</a></li>
+        {% endfor %}
+    </ul>
+
+    <br>
+    <p>[<a href="{% url 'movies:tvshow_create' %}">Добавить новый сериал</a>]</p>
+{% endblock content %}

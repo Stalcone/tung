@@ -15,9 +15,9 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Coll',
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False, verbose_name='ID', auto_created=True)),
+                ('id', models.AutoField(primary_key=True, auto_created=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=255)),
-                ('user', models.ForeignKey(related_name='colls', to=settings.AUTH_USER_MODEL)),
+                ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL, related_name='colls')),
             ],
             options={
             },
@@ -26,12 +26,12 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Item',
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False, verbose_name='ID', auto_created=True)),
+                ('id', models.AutoField(primary_key=True, auto_created=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=255)),
                 ('image_url', models.URLField(blank=True)),
                 ('date', models.DateField()),
                 ('description', models.TextField(blank=True)),
-                ('coll', models.ForeignKey(related_name='items', to='colls.Coll')),
+                ('coll', models.ForeignKey(to='colls.Coll', related_name='items')),
             ],
             options={
             },

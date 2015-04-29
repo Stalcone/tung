@@ -1,0 +1,12 @@
+{% extends "_layouts/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Добавить сезон | {{ tvshow.name }} | {{ block.super }}{% endblock title %}
+
+{% block headline %}
+    <h1>{{ tvshow.name }}: добавить новый сезон</h1>
+{% endblock headline %}
+
+{% block content %}
+    {% crispy form %}
+{% endblock content %}

@@ -1,0 +1,15 @@
+{% extends "_layouts/base.html" %}
+
+{% block title %}Жанры | {{ block.super }}{% endblock title %}
+
+{% block headline %}
+    <h1>Жанры</h1>
+{% endblock headline %}
+
+{% block content %}
+    <ul>
+        {% for genre in genres %}
+            <li><a href="{% url 'movies:genre_detail' %}?genre={{ genre }}">{{ genre }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock content %}

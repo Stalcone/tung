@@ -6,7 +6,8 @@
 
 {% block content %}
     {% if user.is_authenticated %}
-        <a href="{% url 'colls:index' %}">My colls</a>  
+        <a href="{% url 'colls:index' %}">Коллекции</a><br>
+        <a href="{% url 'movies:index' %}">Фильмы</a>
     {% else %}
         <p>Welcome!</p>
     {% endif %}
